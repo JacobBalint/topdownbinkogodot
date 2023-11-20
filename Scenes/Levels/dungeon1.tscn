@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c0s3ym8a36f16"]
 
-[ext_resource type="Texture2D" uid="uid://cu1uvh5jbcxtp" path="res://DesertSands.png" id="1_rxllt"]
+[ext_resource type="Texture2D" uid="uid://cu1uvh5jbcxtp" path="res://Assets/Tilemaps/DesertSands.png" id="1_rxllt"]
 [ext_resource type="PackedScene" uid="uid://cyidivelaw0y7" path="res://char1.tscn" id="2_le3uy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1enq"]
