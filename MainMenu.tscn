@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://cowb2hw66oim6"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_8a3ul"]
+[ext_resource type="Texture2D" uid="uid://c5hxhctm4ui1e" path="res://Titlename.png" id="2_atvdr"]
+[ext_resource type="Texture2D" uid="uid://dtl6m0fg2ec6c" path="res://Title.png" id="2_axfcu"]
+[ext_resource type="Texture2D" uid="uid://begciu00c6get" path="res://playbutton.png" id="2_hyph4"]
+[ext_resource type="Texture2D" uid="uid://cwy82vl650opq" path="res://playbuttonhover.png" id="3_lj4fe"]
+[ext_resource type="Texture2D" uid="uid://ddsio2ebc5kvs" path="res://titleunderline.png" id="6_eq20p"]
+[ext_resource type="AudioStream" uid="uid://bfcolmsqhll0r" path="res://music/TombMainTheme.mp3" id="6_f3nc0"]
+[ext_resource type="PackedScene" uid="uid://bej1cmpff08nt" path="res://Assets/misc/mouse.tscn" id="7_3kv2b"]
+
+[node name="CanvasLayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8a3ul")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("2_axfcu")
+stretch_mode = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_left = 75.0
+offset_top = 375.0
+offset_right = 315.0
+offset_bottom = 525.0
+theme_override_constants/margin_left = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_hyph4")
+texture_hover = ExtResource("3_lj4fe")
+stretch_mode = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_f3nc0")
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 255.0
+offset_right = 1267.5
+offset_bottom = 375.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer3"]
+layout_mode = 2
+texture = ExtResource("6_eq20p")
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 45.0
+offset_right = 1245.0
+offset_bottom = 285.0
+theme_override_constants/margin_left = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_atvdr")
+stretch_mode = 4
+
+[node name="Node" parent="." instance=ExtResource("7_3kv2b")]
+
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/MarginContainer/TextureButton" to="." method="_on_texture_button_pressed"]
